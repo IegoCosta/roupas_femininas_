@@ -1,73 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{#if clothing._id}}Editar Roupa{{else}}Adicionar Roupa{{/if}}</title>
-  <style>
-    /* Fundo preto para a página */
-    body {
-      background-color: black; /* Fundo preto */
-      color: white; /* Texto branco */
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-
-    h2 {
-      text-align: center;
-      color: #FFFFFF; /* Título branco */
-    }
-
-    form {
-      max-width: 500px;
-      margin: 0 auto;
-      padding: 20px;
-      background-color:#86818a; 
-      border-radius: 8px;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    }
-
-    label {
-      display: block;
-      font-weight: bold;
-      color: #2f2c31; /* Cor do texto */
-      margin-bottom: 5px;
-    }
-
-    input[type="text"],
-    input[type="number"] {
-      width: 95%;
-      padding: 10px;
-      border: 1px solid #78588f;
-      border-radius: 8px;
-      background-color: hsl(261, 50%, 89%); /* Fundo suave */
-    }
-
-    input[type="text"]:focus,
-    input[type="number"]:focus {
-      border-color: #4B0082; /* Destaque na borda ao focar */
-      outline: none;
-    }
-
-    button {
-      width: 100%;
-      padding: 12px;
-      background-color: #4B0082; /* Botão roxo */
-      color: white;
-      font-size: 16px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #6A5ACD; /* Efeito hover no botão */
-    }
-  </style>
-</head>
-<body>
+<body class="add-or-edit-page">
   <h2>{{#if clothing._id}}Editar Roupa{{else}}Adicionar Roupa{{/if}}</h2>
 
   <form action="/clothes/{{#if clothing._id}}update/{{clothing._id}}{{else}}add{{/if}}" method="POST">
@@ -102,9 +33,9 @@
     </div>
 
     <!-- Botão de Submit -->
+    <button onclick="window.location.href='/clothes';">Voltar</button>
     <button type="submit">
       {{#if clothing._id}}Atualizar{{else}}Adicionar{{/if}}
     </button>
   </form>
 </body>
-</html>
